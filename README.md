@@ -3,7 +3,7 @@ hecho por:
 - David Sagales Mamani 
 - Amilcar Brandon Zamora Paredes
 
-# ¿Como utilizar el codigo?
+# ¿Como utilizar el codigo Vehiculo.sol?
 Requisitos Previos
 - Contrato desplegado en Remix IDE
 - MetaMask conectado a una red de prueba
