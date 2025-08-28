@@ -4,6 +4,7 @@ hecho por:
 - Amilcar Brandon Zamora Paredes
 
 #
+#
 # ¿Como utilizar el contrato SistemaEstacionamientoMejorado.sol?
 Paso 1: Registrar Vehículo
 - Función: registrarVehiculo.
@@ -46,6 +47,7 @@ Paso Extra: Retirar Fondos (Solo Admin)
 - Orden: Cuando quieras, después de pagos.
 - En Remix: Usa la cuenta del desplegador (admin).
 
+#
 #
 # ¿Como utilizar el codigo Vehiculo.sol?
 Requisitos Previos
