@@ -3,13 +3,57 @@ hecho por:
 - David Sagales Mamani 
 - Amilcar Brandon Zamora Paredes
 
+
+# ¿Como utilizar el contrato SistemaEstacionamientoMejorado.sol?
+Paso 1: Registrar Vehículo
+- Función: registrarVehiculo.
+- Datos: Ingresa _matricula (ej. "ABC123" como string).
+- Orden: Primero siempre, ya que otros pasos requieren registro.
+- En Remix: Expande el contrato desplegado, ingresa en el campo, clic en botón. Confirma en MetaMask.
+- Verifica: Llama obtenerEstadoVehiculo("ABC123") (devuelve false, 0, 0).
+
+Paso 2: Estacionar Vehículo
+- Función: estacionar.
+- Datos: _matricula (ej. "ABC123"), _numeroLugar (ej. 1 como uint256). Elige un número no ocupado (verifica con lugaresOcupados(1) si es false).
+- Orden: Después de registrar. Requiere ser propietario.
+- En Remix: Ingresa valores, confirma transacción.
+- Verifica: obtenerEstadoVehiculo devuelve true, timestamp actual, 1.
+
+Paso 3: Realizar Pago
+- Función: pagar.
+- Datos: _matricula (ej. "ABC123"). En Remix, en "Value" pon monto (ej. 0.001 ETH = 1000000000000000 wei).
+- Orden: Después de estacionar. Puedes pagar múltiples veces.
+- En Remix: Ingresa matrícula, pon Value, confirma.
+- Verifica: obtenerTotalPagos("ABC123") devuelve el total.
+
+Paso 4: Autorizar Retiro (Opcional)
+- Función: autorizarRetiro.
+- Datos: _matricula (ej. "ABC123"), _personaAutorizada (otra dirección MetaMask, ej. 0x123...), _horasExpiracion (ej. 2).
+- Orden: Después de pagar al menos una vez.
+- En Remix: Ingresa valores, confirma.
+- Nota: Si no autorizas, el propietario aún puede retirar.
+
+Paso 5: Retirar Vehículo
+- Función: retirar.
+- Datos: _matricula (ej. "ABC123").
+- Orden: Último, después de pagar. Si autorizaste, usa la cuenta autorizada.
+- En Remix: Ingresa, confirma. Libera el lugar automáticamente.
+- Verifica: obtenerEstadoVehiculo devuelve false, timestamp viejo, 0. lugaresOcupados(1) es false.
+
+Paso Extra: Retirar Fondos (Solo Admin)
+- Función: retirarFondos.
+- Datos: _destino (tu dirección), _monto (en wei, ej. balance total).
+- Orden: Cuando quieras, después de pagos.
+- En Remix: Usa la cuenta del desplegador (admin).
+
+
 # ¿Como utilizar el codigo Vehiculo.sol?
 Requisitos Previos
 - Contrato desplegado en Remix IDE
 - MetaMask conectado a una red de prueba
 - ETH de prueba disponible
 - Secuencia de Operaciones
-
+- 
 Registrar un Vehículo
 - Encuentra la función registerVehicle en la interfaz
 - Ingresa el número de placa (ejemplo: "ABC123")
