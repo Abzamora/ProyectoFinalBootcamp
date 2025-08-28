@@ -6,7 +6,7 @@ hecho por:
 #
 #
 # ¿Como utilizar el contrato SistemaEstacionamientoMejorado.sol?
-El contrado puede correr en la misma pagina de Remix no es necesario conectara a MetaMask. Bebe primero crear un achivo .sol copiar y pegar el codigo, compilar y finalmente hacer Deploy "Publicar".
+El contrado puede correr en la misma pagina de Remix no es necesario conectar a MetaMask. Bebe primero crear un achivo .sol copiar y pegar el codigo, compilar y finalmente hacer Deploy "Publicar".
 Paso 1: Registrar Vehículo
 - Función: registrarVehiculo.
 - Datos: Ingresa _matricula (ej. "ABC123" como string).
